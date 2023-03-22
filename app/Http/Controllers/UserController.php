@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 class UserController extends Controller
 {
+
+    public function useer()
+    {
+        $data = DB::table("users")->get();
+        return view('user.useer',['users'=>$data]);
+    } 
+
     public function login(){
         return view ('user.login');
     }
