@@ -40,7 +40,7 @@ class ProductController extends Controller
      }
  
      public function updateProduct(Request $req){
-         $req->validate([
+        $req->validate([
             "description"=>'required',
             "quantity"=>'required',
             "price"=>'required',
@@ -53,7 +53,7 @@ class ProductController extends Controller
          
  
              $data->save();
-             return redirect('/')-> with('success', 'A product has been edited successfully!');
+             return redirect('/products')-> with('success', 'A product has been edited successfully!');
  
  
          

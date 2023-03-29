@@ -5,13 +5,14 @@
 <form action="/updateProduct" method="POST">
     @csrf
     
-
+    <input type="hidden" id="id" name="id" value="{{$product->id}}"> 
  
 <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <input 
       type="text" 
       class="form-control" 
+      name="description"
       aria-describedby="emailHelp"
       value="{{$product->description}}">
      
