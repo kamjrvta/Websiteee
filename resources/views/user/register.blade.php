@@ -17,7 +17,7 @@
       class="form-control" 
       aria-describedby="emailHelp"
       name="name">
-      
+    
     </div>
 
     <div class="mb-3">
