@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
-{ public function index()
+{ public function showProduct()
     {
         $data = DB::table("products")->get();
-        return view('product.index',['products'=>$data]);
+        return view('product.showProduct',['products'=>$data]);
     } 
 
     public function addProduct(){
         return view('product.addProduct');
     }
 
-    public function saveProduct(Request $req){
+    public function postProduct(Request $req){
         // dd($req);
        $validated=$req->validate([
             "description"=>'required',
@@ -29,18 +29,18 @@ class ProductController extends Controller
 
         // dd($validated);
         $data=Product::create($validated);
-        return redirect("/products")->with('success', 'A product has been added!');
+        return redirect("products")->with('success', 'A product has been added!');
     
     }
 
     public function editProduct($id){
-        $data=Product::findOrFail($id);
-        return view('product.editProduct',['product'=>$data]);
-        return redirect('/products')-> with('success', 'A product has been edited successfully!');
+        $product=Product::findOrFail($id);
+        return view('product.editProduct',['product'=>$product]);
+        //return redirect('/products')-> with('success', 'A product has been edited successfully!');
      }
  
      public function updateProduct(Request $req){
-        $req->validate([
+        $validated=$req->validate([
             "description"=>'required',
             "quantity"=>'required',
             "price"=>'required',
@@ -50,20 +50,18 @@ class ProductController extends Controller
              $data->description=$req->description;
              $data->quantity=$req->quantity;
              $data->price=$req->price;
-         
- 
              $data->save();
-             return redirect('/products')-> with('success', 'A product has been edited successfully!');
+             return redirect('/products')-> with('success', 'A product has been edited');
  
  
          
  
      }
 
-     public function delete($id){
-        $delete = DB::table('products')
+     public function deleteProduct($id){
+        $product = DB::table('products')
         ->where('id', $id)
         ->delete();
-        return redirect('/products')-> with('success', 'A record has been deleted!');
+        return redirect('/products')-> with('success', 'A product has been deleted');
     }
 }

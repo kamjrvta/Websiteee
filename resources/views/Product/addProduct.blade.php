@@ -3,7 +3,7 @@
 <center> <img src="mickey.png" alt=""> </center>
 
 <h5>FILL THE FORMS TO ADD A NEW PRODUCT</h5>
-<form action="/saveProduct" method="POST">
+<form action="/products/add/" method="POST">
     @csrf
     
  

@@ -21,7 +21,7 @@
 </div>
     
   @endif
-  @foreach($products as $product)
+  @foreach ($products as $product)
      
   <tbody>
     <tr>
@@ -30,8 +30,8 @@
       <td>{{$product->quantity}}</td>
       <td>{{$product->price}}</td>
      
-      <td><a href="edit/{{$product->id}}" class="text-info-emphasis">Edit</a></td>
-      <td><a href="delete/{{$product->id}}" class="text-danger">DELETE</a></td>
+      <td><a href="/products/edit-product/{{$product->id}}" class="text-info-emphasis">Edit</a></td>
+      <td><a href="/products/delete-product/{{$product->id}}" class="text-danger">DELETE</a></td>
     
     </tr>
   </tbody>

@@ -3,13 +3,14 @@
       <a class="nav-link active"  href={{"/"}}>Records</a>
  
     </li>
-
+    
+    
     <li class="nav-item">
       <a class="nav-link" href={{"/addCustomer"}}>Add Record</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href={{"/user"}}>Users</a>
+      <a class="nav-link" href={{"/users"}}>Users</a>
     </li>
 
    

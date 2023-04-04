@@ -2,7 +2,7 @@
 <center> <img src="mickey.png" alt=""> </center>
 
 <h5>EDIT PRODUCT</h5>
-<form action="/updateProduct" method="POST">
+<form method="POST" action="/products/edit/">
     @csrf
     
     <input type="hidden" id="id" name="id" value="{{$product->id}}"> 

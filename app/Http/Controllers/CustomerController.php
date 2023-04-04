@@ -31,15 +31,14 @@ class CustomerController extends Controller
 
         //dd($validated);
         $data=Customer::create($validated);
-
         return redirect("/")->with('success', 'A record has been added!');
     
     }
 
     public function edit($id){
        $data=Customer::findOrFail($id);
-       return view('customer.edit',['customer'=>$data]);
-       return redirect('/')-> with('success', 'A record has been edited successfully!');
+       return view('customer.editCustomer',['customer'=>$data]);
+      //return redirect('/')-> with('success', 'A record has been edited successfully!');
     }
 
     public function updateCustomer(Request $req){
@@ -60,9 +59,16 @@ class CustomerController extends Controller
             $data->save();
             return redirect('/')-> with('success', 'A record has been edited successfully!');
 
-
+    }
         
 
+    
+
+    public function delete($id){
+        $delete = DB::table('customers')
+        ->where('id', $id)
+        ->delete();
+        return redirect('/')-> with('success', 'A record has been deleted');
     }
 
     
